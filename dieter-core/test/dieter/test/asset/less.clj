@@ -7,7 +7,8 @@
 
 (deftest test-preprocess-less
   (settings/with-options
-   {:compress false}
+   {:compress false
+    :engine :v8}
    (testing "basic less file"
     (is (= "#header {\n  color: #4d926f;\n}\n" (less/preprocess-less (io/file "test/fixtures/assets/stylesheets/basic.less")))))
    (testing "file with imports"
